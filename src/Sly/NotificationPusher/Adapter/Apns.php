@@ -188,6 +188,7 @@ class Apns extends BaseAdapter implements FeedbackAdapterInterface
             : false;
 
         $sound            = $message->getOption('sound');
+        $mutableContent   = $message->getOption('mutable-content');
         $contentAvailable = $message->getOption('content-available');
         $category         = $message->getOption('category');
         $urlArgs          = $message->getOption('urlArgs');
@@ -236,6 +237,10 @@ class Apns extends BaseAdapter implements FeedbackAdapterInterface
 
         if (null !== $sound) {
             $serviceMessage->setSound($sound);
+        }
+
+        if (null !== $mutableContent) {
+            $serviceMessage->setMutableContent($mutableContent);
         }
 
         if (null !== $contentAvailable) {
